@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MPI</title>
+
+    <link rel="stylesheet" href="css/mpi.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <!-- <script src="https://unpkg.com/gsap@3/dist/ScrollToPlugin.min.js"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <section id="title-section" class="flex flex-col justify-center items-center">
+        <div style="position: relative; display: inline-block;"></div>
+            <img src="images\cover.jpg" alt="Cover" style="display: block;">
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; justify-content: center; align-items: center">
+                    <div id="concover" style="background-color: rgba(0, 0, 0, 0.5); padding: 20px; border-radius: 20px;">
+                        <h1 class="title text-6xl font-bold" style="color: white">Multidimensional Poverty Index</h1>
+                        <h2 class="subtitle text-2xl" style="color: white">Direktorat Analisis & Pengembangan Statistik</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-down" style="color: white">Scroll down<div class="arrow"></div>
+        </div>
+    </section>
+
+
+    <section id="quote-section" class="pt-10 flex flex-col justify-center">
+        <div id="sen-quote"
+            class="bg-white z-10 rounded-xl shadow-lg border border-gray-200 p-10 text-center container mx-auto">
+            <figure class="max-w-screen-md mx-auto text-center">
+                <svg aria-hidden="true" class="w-12 h-12 mx-auto mb-3 text-gray-400" viewBox="0 0 24 27" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
+                        fill="currentColor" />
+                </svg>
+                <blockquote>
+                    <p class="text-2xl italic font-medium text-gray-900">Poverty is not just a lack of money; it is not
+                        having the capability to realize one’s full potential as a human being.</p>
+                </blockquote>
+                <figcaption class="flex items-center justify-center mt-6 space-x-3">
+                    <img class="w-6 h-6 rounded-full" src="images/sen.jpg" alt="Amartya Sen">
+                    <div class="flex items-center">
+                        <cite class="pr-3 font-medium text-gray-900">Amartya Sen</cite>
+                    </div>
+                </figcaption>
+            </figure>
+        </div>
+        <div id="quote-con" class="-translate-y-16">
+            <p class="text-center text-xl font-semibold">Keterbatasan yang dimiliki membatasi masyarakat untuk
+                mewujudkan hidup yang lebih layak dan keluar dari kemiskinan.</p>
+        </div>
+    </section>
+
+    <section id="graph-section">
+        <div class="kemiskinan w-full min-h-full flex">
+            <svg class="m-auto" style="max-width: 1500px;" viewBox="0 0 300 300" version="1.1" id="svg5" xmlns:svg="http://www.w3.org/2000/svg">
+                <defs id="defs2" />
+                <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1">
+                    <circle style="fill:none;fill-opacity:0.309859;stroke:#000000;stroke-width:0.5;stroke-opacity:1"
+                        id="kesehatan" cx="50%" cy="50%" r="49" inkscape:export-filename="kemiskinan.svg"
+                        inkscape:export-xdpi="96" inkscape:export-ydpi="96" />
+                    <circle style="fill:none;fill-opacity:0.309859;stroke:#000000;stroke-width:0.5;stroke-opacity:1"
+                        id="pendidikan" cx="50%" cy="50%" r="49" inkscape:export-filename="path184.svg"
+                        inkscape:export-xdpi="96" inkscape:export-ydpi="96" />
+                    <circle style="fill:none;fill-opacity:0.309859;stroke:#000000;stroke-width:0.5;stroke-opacity:1"
+                        id="standar" cx="50%" cy="50%" r="49" inkscape:export-filename="path184.svg"
+                        inkscape:export-xdpi="96" inkscape:export-ydpi="96" />
+
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="35%" cy="50%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="41%" cy="50%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="44%" cy="50%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="47%" cy="50%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="50%" cy="50%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="53%" cy="50%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="56%" cy="50%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="59%" cy="50%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="62%" cy="50%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="39.5%" cy="47%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="50%" cy="44%" r="2.5" />
+
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="36.5%" cy="47%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="42.5%" cy="47%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="45.5%" cy="47%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="51.5%" cy="47%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="48.5%" cy="47%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="54.5%" cy="47%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="57.5%" cy="47%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="38%" cy="50%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="60.5%" cy="47%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="63.5%" cy="47%"
+                        r="2.5" />
+
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="38%" cy="44%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="53%" cy="38%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="45.5%" cy="53%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="41%" cy="44%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="47%" cy="44%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="53%" cy="44%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="65%" cy="50%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="56%" cy="44%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="59%" cy="44%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="62%" cy="44%" r="2.5" />
+
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="39.5%" cy="41%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="42.5%" cy="41%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="45.5%" cy="41%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="48.5%" cy="41%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="51.5%" cy="41%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="57.5%" cy="41%"
+                        r="2.5" />
+
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="41%" cy="38%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="44%" cy="38%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="54.5%" cy="53%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="47%" cy="38%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="50%" cy="38%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="56%" cy="38%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="60.5%" cy="41%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="59%" cy="38%" r="2.5" />
+
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="48.5%" cy="35%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="51.5%" cy="35%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="44%" cy="44%" r="2.5" />
+
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="51.5%" cy="65%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="36.5%" cy="53%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="39.5%" cy="53%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="53%" cy="62%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="54.5%" cy="41%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="42.5%" cy="53%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="48.5%" cy="53%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="51.5%" cy="53%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="60.5%" cy="53%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="63.5%" cy="53%"
+                        r="2.5" />
+
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="38%" cy="56%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="41%" cy="56%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="44%" cy="56%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="47%" cy="56%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="50%" cy="56%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="53%" cy="56%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="56%" cy="56%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="62%" cy="56%" r="2.5" />
+
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="39.5%" cy="59%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="42.5%" cy="59%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="45.5%" cy="59%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="48.5%" cy="59%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="51.5%" cy="59%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="54.5%" cy="59%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="57.5%" cy="59%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="57.5%" cy="53%"
+                        r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="60.5%" cy="59%"
+                        r="2.5" />
+
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="41%" cy="62%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="44%" cy="62%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="47%" cy="62%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="50%" cy="62%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="59%" cy="56%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="56%" cy="62%" r="2.5" />
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="59%" cy="62%" r="2.5" />
+
+                    <circle class="miskin" style="fill:#000000;fill-opacity:1;stroke:none" cx="48.5%" cy="65%"
+                        r="2.5" />
+                </g>
+            </svg>
+        </div>
+    </section>
+
+    <section id="data-section" class="flex flex-row-reverse items-center">
+        <div class="basis-2/3">
+            <div id="main" style="width: 100%;height:800px;"></div>
+        </div>
+    </section>
+
+    <section id="story-section" class="flex flex-col">
+        <div id="story-1" class="basis-1/3 min-h-screen">Some Text</div>
+        <div id="story-2" class="basis-1/3 min-h-screen">Some Text</div>
+        <div id="story-3" class="basis-1/3 min-h-screen">Some Text</div>
+        <div id="story-4" class="basis-1/3 min-h-screen">Some Text</div>
+    </section>
+
+    <section>
+        Data Zoom
+    </section>
+
+    <section>
+        Contoh
+    </section>
+
+    <section>
+        My Quote
+    </section>
+
+</body>
+
+<script>
+    // ARROW
+    gsap.to('.arrow', { y: 12, ease: "power1.inOut", repeat: -1, yoyo: true });
+
+    // TITLE SECTION
+    gsap.timeline()
+        .from(
+            '.title', 
+            {
+                opacity: 0,
+                y: '+=30', 
+                duration: 1
+            }
+        )
+        .from(
+            '#concover',
+            { 
+                opacity: 0,
+                duration: 0.7 
+            }
+        )
+        .from(
+            '.subtitle',
+            { 
+                opacity: 0,
+                duration: 0.7 
+            }
+        )
+
+    gsap.timeline(
+        { 
+            scrollTrigger: 
+            { 
+                trigger: '#title-section',
+                start: '+=50 top',
+                end: 'bottom top',
+                scrub: true 
+            } 
+        }
+    )
+    .to(
+        '#concover',
+        { 
+            scale: 2.3,
+        }, 0
+    )
+    .to(
+        '.subtitle',
+        { 
+            opacity: -100 
+        }, 0
+    )
+
+    // QUOTE SECTION
+    gsap.timeline({
+        scrollTrigger:
+        {
+            trigger: '#quote-section',
+            start: 'center center',
+            end: '+=1500',
+            duration: 50,
+            scrub: true,
+            pin: true
+        }
+    })
+        .fromTo("#sen-quote", { scale: 0.5, opacity: 0.1 }, { scale: 1, opacity: 1, duration: 0.5 })
+        .to("#sen-quote", { y: "-=100" })
+        .fromTo('#quote-con', { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5 }, "-=0.5")
+
+
+    // GRAPH SECTION
+    var newLoc = [
+        [60, 51], [60, 47.5], [54, 45], [60.5, 54], [57, 50], [63, 50], [56, 47], [64, 47], [58, 44.5], [62, 45],
+        [40, 51], [40, 47.5], [46, 45], [40.5, 54], [37, 50], [43, 50], [36, 47], [44, 47], [38, 44.5], [42, 45], [38, 52.5],
+        [55, 62], [45, 62], [49, 62.5], [52, 64], [47, 65], [54, 66], [51, 67], [48.5, 67.5], [51.5, 69.5], [48.5, 70],
+        [40, 40], [51, 32.5], [56, 35], [43, 37.5], [59, 40], [50, 36], [51, 39], [45, 32.5], [41, 35], [55, 38], [47, 40], [46, 36], [63, 40], [60, 34],
+        [65, 63], [63, 58], [66, 55], [66, 66], [69, 50], [61, 61], [69, 60], [57, 70], [63, 70], [59, 65], [61, 67], [70, 55], [70, 63],
+        [33, 54], [29, 65], [31, 59], [37, 70], [38, 64], [35, 60], [33, 64], [38, 59], [41, 67], [35.5, 67], [29, 55.5], [45, 72], [41, 72], [32, 50], [35, 57],
+        [51, 51], [50, 58], [47, 57], [54, 56], [46, 53], [50.5, 54], [50, 47], [48, 50], [53, 53], [52, 49]]
+
+    var graphAnim = gsap.timeline({
+        scrollTrigger:
+        {
+            trigger: '#graph-section',
+            start: 'center center',
+            end: '+=5000',
+            duration: 50,
+            scrub: true,
+            pin: true
+        }
+    })
+        .from('.kemiskinan', { scale: 0.5, opacity: 0.5, duration: 1 })
+        // .from('.miskin', { duration: 1, scale: 0, stagger: 0.8 })
+        .to('.miskin', { cx: 10, cy: 30, duration: 1 })
+        .to('#kesehatan', { y: "-=17", duration: 1 })
+        .to('#standar', { x: "-=25", y: "+=25", duration: 1 }, "-=1")
+        .to('#pendidikan', { x: "+=25", y: "+=25", duration: 1 }, "-=1")
+        .to('.miskin', { cx: (a, b, c) => newLoc[a][0], cy: (a, b, c) => newLoc[a][1], duration: 1, stagger: {each: 0.2, from: 'random'}, ease: 'none' })
+
+    // DATA SECTION
+    var dataAnim = gsap.timeline({
+        scrollTrigger:
+        {
+            trigger: '#data-section',
+            start: 'center center',
+            endTrigger: '#story-4',
+            end: 'top top',
+            scrub: true,
+            pin: true,
+            pinSpacing: false,
+            // markers: true
+        }
+    })
+
+    var chartDom = document.getElementById('main');
+    var myChart;
+
+    var data = [{ "provinsi": "Aceh", "tahun": 2019, "mpi": 0.078, "kemiskinan_moneter": 15.32, "ipm": 71.9, "jum_penduduk": 5316 }, { "provinsi": "Sumatera Utara", "tahun": 2019, "mpi": 0.071, "kemiskinan_moneter": 8.83, "ipm": 71.74, "jum_penduduk": 14639 }, { "provinsi": "Sumatera Barat", "tahun": 2019, "mpi": 0.082, "kemiskinan_moneter": 6.42, "ipm": 72.39, "jum_penduduk": 5480 }, { "provinsi": "Riau", "tahun": 2019, "mpi": 0.079, "kemiskinan_moneter": 7.08, "ipm": 73.0, "jum_penduduk": 6835 }, { "provinsi": "Jambi", "tahun": 2019, "mpi": 0.084, "kemiskinan_moneter": 7.6, "ipm": 71.26, "jum_penduduk": 3566 }, { "provinsi": "Sumatera Selatan", "tahun": 2019, "mpi": 0.089, "kemiskinan_moneter": 12.71, "ipm": 70.02, "jum_penduduk": 8497 }, { "provinsi": "Bengkulu", "tahun": 2019, "mpi": 0.081, "kemiskinan_moneter": 15.23, "ipm": 71.21, "jum_penduduk": 1972 }, { "provinsi": "Lampung", "tahun": 2019, "mpi": 0.08, "kemiskinan_moneter": 12.62, "ipm": 69.57, "jum_penduduk": 8458 }, { "provinsi": "Kep. Bangka Belitung", "tahun": 2019, "mpi": 0.058, "kemiskinan_moneter": 4.62, "ipm": 71.3, "jum_penduduk": 1451 }, { "provinsi": "Kepulauan Riau", "tahun": 2019, "mpi": 0.038, "kemiskinan_moneter": 5.9, "ipm": 75.48, "jum_penduduk": 2242 }, { "provinsi": "DKI Jakarta", "tahun": 2019, "mpi": 0.021, "kemiskinan_moneter": 3.47, "ipm": 80.76, "jum_penduduk": 10504 }, { "provinsi": "Jawa Barat", "tahun": 2019, "mpi": 0.07, "kemiskinan_moneter": 6.91, "ipm": 72.03, "jum_penduduk": 49023 }, { "provinsi": "Jawa Tengah", "tahun": 2019, "mpi": 0.061, "kemiskinan_moneter": 10.8, "ipm": 71.73, "jum_penduduk": 34553 }, { "provinsi": "D I Yogyakarta", "tahun": 2019, "mpi": 0.017, "kemiskinan_moneter": 11.7, "ipm": 79.99, "jum_penduduk": 3869 }, { "provinsi": "Jawa Timur", "tahun": 2019, "mpi": 0.058, "kemiskinan_moneter": 10.37, "ipm": 71.5, "jum_penduduk": 39745 }, { "provinsi": "Banten", "tahun": 2019, "mpi": 0.076, "kemiskinan_moneter": 5.09, "ipm": 72.44, "jum_penduduk": 12714 }, { "provinsi": "Bali", "tahun": 2019, "mpi": 0.027, "kemiskinan_moneter": 3.79, "ipm": 75.38, "jum_penduduk": 4362 }, { "provinsi": "Nusa Tenggara Barat", "tahun": 2019, "mpi": 0.056, "kemiskinan_moneter": 14.56, "ipm": 68.14, "jum_penduduk": 5152 }, { "provinsi": "Nusa Tenggara Timur", "tahun": 2019, "mpi": 0.231, "kemiskinan_moneter": 21.09, "ipm": 65.23, "jum_penduduk": 5437 }, { "provinsi": "Kalimantan Barat", "tahun": 2019, "mpi": 0.121, "kemiskinan_moneter": 7.49, "ipm": 67.65, "jum_penduduk": 5046 }, { "provinsi": "Kalimantan Tengah", "tahun": 2019, "mpi": 0.099, "kemiskinan_moneter": 4.98, "ipm": 70.91, "jum_penduduk": 2650 }, { "provinsi": "Kalimantan Selatan", "tahun": 2019, "mpi": 0.073, "kemiskinan_moneter": 4.55, "ipm": 70.72, "jum_penduduk": 4216 }, { "provinsi": "Kalimantan Timur", "tahun": 2019, "mpi": 0.046, "kemiskinan_moneter": 5.94, "ipm": 76.61, "jum_penduduk": 3620 }, { "provinsi": "Kalimantan Utara", "tahun": 2019, "mpi": 0.087, "kemiskinan_moneter": 6.63, "ipm": 71.15, "jum_penduduk": 696 }, { "provinsi": "Sulawesi Utara", "tahun": 2019, "mpi": 0.077, "kemiskinan_moneter": 7.66, "ipm": 72.99, "jum_penduduk": 2494 }, { "provinsi": "Sulawesi Tengah", "tahun": 2019, "mpi": 0.133, "kemiskinan_moneter": 13.48, "ipm": 69.5, "jum_penduduk": 3042 }, { "provinsi": "Sulawesi Selatan", "tahun": 2019, "mpi": 0.074, "kemiskinan_moneter": 8.69, "ipm": 71.66, "jum_penduduk": 8820 }, { "provinsi": "Sulawesi Tenggara", "tahun": 2019, "mpi": 0.097, "kemiskinan_moneter": 11.24, "ipm": 71.2, "jum_penduduk": 2664 }, { "provinsi": "Gorontalo", "tahun": 2019, "mpi": 0.095, "kemiskinan_moneter": 15.52, "ipm": 68.49, "jum_penduduk": 1176 }, { "provinsi": "Sulawesi Barat", "tahun": 2019, "mpi": 0.122, "kemiskinan_moneter": 11.02, "ipm": 65.73, "jum_penduduk": 1359 }, { "provinsi": "Maluku", "tahun": 2019, "mpi": 0.161, "kemiskinan_moneter": 17.69, "ipm": 69.45, "jum_penduduk": 1769 }, { "provinsi": "Maluku Utara", "tahun": 2019, "mpi": 0.187, "kemiskinan_moneter": 6.77, "ipm": 68.7, "jum_penduduk": 1236 }, { "provinsi": "Papua Barat", "tahun": 2019, "mpi": 0.132, "kemiskinan_moneter": 22.17, "ipm": 64.7, "jum_penduduk": 964 }, { "provinsi": "Papua", "tahun": 2019, "mpi": 0.228, "kemiskinan_moneter": 27.53, "ipm": 60.84, "jum_penduduk": 3347 }, { "provinsi": "Indonesia", "tahun": 2019, "mpi": 0.074, "kemiskinan_moneter": 9.41, "ipm": 71.92, "jum_penduduk": 266912 }, { "provinsi": "Aceh", "tahun": 2020, "mpi": 0.061, "kemiskinan_moneter": 14.99, "ipm": 71.99, "jum_penduduk": 5275 }, { "provinsi": "Sumatera Utara", "tahun": 2020, "mpi": 0.069, "kemiskinan_moneter": 8.75, "ipm": 71.77, "jum_penduduk": 14799 }, { "provinsi": "Sumatera Barat", "tahun": 2020, "mpi": 0.073, "kemiskinan_moneter": 6.28, "ipm": 72.38, "jum_penduduk": 5534 }, { "provinsi": "Riau", "tahun": 2020, "mpi": 0.069, "kemiskinan_moneter": 6.82, "ipm": 72.71, "jum_penduduk": 6394 }, { "provinsi": "Jambi", "tahun": 2020, "mpi": 0.068, "kemiskinan_moneter": 7.58, "ipm": 71.29, "jum_penduduk": 3548 }, { "provinsi": "Sumatera Selatan", "tahun": 2020, "mpi": 0.079, "kemiskinan_moneter": 12.66, "ipm": 70.01, "jum_penduduk": 8467 }, { "provinsi": "Bengkulu", "tahun": 2020, "mpi": 0.07, "kemiskinan_moneter": 15.03, "ipm": 71.4, "jum_penduduk": 2011 }, { "provinsi": "Lampung", "tahun": 2020, "mpi": 0.071, "kemiskinan_moneter": 12.34, "ipm": 69.69, "jum_penduduk": 9008 }, { "provinsi": "Kep. Bangka Belitung", "tahun": 2020, "mpi": 0.059, "kemiskinan_moneter": 4.53, "ipm": 71.47, "jum_penduduk": 1456 }, { "provinsi": "Kepulauan Riau", "tahun": 2020, "mpi": 0.033, "kemiskinan_moneter": 5.92, "ipm": 75.59, "jum_penduduk": 2065 }, { "provinsi": "DKI Jakarta", "tahun": 2020, "mpi": 0.022, "kemiskinan_moneter": 4.53, "ipm": 80.77, "jum_penduduk": 10562 }, { "provinsi": "Jawa Barat", "tahun": 2020, "mpi": 0.062, "kemiskinan_moneter": 7.88, "ipm": 72.09, "jum_penduduk": 48274 }, { "provinsi": "Jawa Tengah", "tahun": 2020, "mpi": 0.05, "kemiskinan_moneter": 11.41, "ipm": 71.87, "jum_penduduk": 36516 }, { "provinsi": "D I Yogyakarta", "tahun": 2020, "mpi": 0.017, "kemiskinan_moneter": 12.28, "ipm": 79.97, "jum_penduduk": 3669 }, { "provinsi": "Jawa Timur", "tahun": 2020, "mpi": 0.049, "kemiskinan_moneter": 11.09, "ipm": 71.71, "jum_penduduk": 40666 }, { "provinsi": "Banten", "tahun": 2020, "mpi": 0.062, "kemiskinan_moneter": 5.92, "ipm": 72.45, "jum_penduduk": 11905 }, { "provinsi": "Bali", "tahun": 2020, "mpi": 0.021, "kemiskinan_moneter": 3.78, "ipm": 75.5, "jum_penduduk": 4317 }, { "provinsi": "Nusa Tenggara Barat", "tahun": 2020, "mpi": 0.048, "kemiskinan_moneter": 13.97, "ipm": 68.25, "jum_penduduk": 5320 }, { "provinsi": "Nusa Tenggara Timur", "tahun": 2020, "mpi": 0.217, "kemiskinan_moneter": 20.9, "ipm": 65.19, "jum_penduduk": 5326 }, { "provinsi": "Kalimantan Barat", "tahun": 2020, "mpi": 0.101, "kemiskinan_moneter": 7.17, "ipm": 67.66, "jum_penduduk": 5414 }, { "provinsi": "Kalimantan Tengah", "tahun": 2020, "mpi": 0.088, "kemiskinan_moneter": 4.82, "ipm": 71.05, "jum_penduduk": 2670 }, { "provinsi": "Kalimantan Selatan", "tahun": 2020, "mpi": 0.068, "kemiskinan_moneter": 4.38, "ipm": 70.91, "jum_penduduk": 4074 }, { "provinsi": "Kalimantan Timur", "tahun": 2020, "mpi": 0.041, "kemiskinan_moneter": 6.1, "ipm": 76.24, "jum_penduduk": 3766 }, { "provinsi": "Kalimantan Utara", "tahun": 2020, "mpi": 0.078, "kemiskinan_moneter": 6.8, "ipm": 70.63, "jum_penduduk": 702 }, { "provinsi": "Sulawesi Utara", "tahun": 2020, "mpi": 0.061, "kemiskinan_moneter": 7.62, "ipm": 72.93, "jum_penduduk": 2622 }, { "provinsi": "Sulawesi Tengah", "tahun": 2020, "mpi": 0.115, "kemiskinan_moneter": 12.92, "ipm": 69.55, "jum_penduduk": 2986 }, { "provinsi": "Sulawesi Selatan", "tahun": 2020, "mpi": 0.066, "kemiskinan_moneter": 8.72, "ipm": 71.93, "jum_penduduk": 9074 }, { "provinsi": "Sulawesi Tenggara", "tahun": 2020, "mpi": 0.088, "kemiskinan_moneter": 11.0, "ipm": 71.45, "jum_penduduk": 2625 }, { "provinsi": "Gorontalo", "tahun": 2020, "mpi": 0.09, "kemiskinan_moneter": 15.22, "ipm": 68.68, "jum_penduduk": 1172 }, { "provinsi": "Sulawesi Barat", "tahun": 2020, "mpi": 0.122, "kemiskinan_moneter": 10.87, "ipm": 66.11, "jum_penduduk": 1419 }, { "provinsi": "Maluku", "tahun": 2020, "mpi": 0.149, "kemiskinan_moneter": 17.44, "ipm": 69.49, "jum_penduduk": 1849 }, { "provinsi": "Maluku Utara", "tahun": 2020, "mpi": 0.18, "kemiskinan_moneter": 6.78, "ipm": 68.49, "jum_penduduk": 1283 }, { "provinsi": "Papua Barat", "tahun": 2020, "mpi": 0.133, "kemiskinan_moneter": 21.37, "ipm": 65.09, "jum_penduduk": 1134 }, { "provinsi": "Papua", "tahun": 2020, "mpi": 0.21, "kemiskinan_moneter": 26.64, "ipm": 60.44, "jum_penduduk": 4304 }, { "provinsi": "Indonesia", "tahun": 2020, "mpi": 0.066, "kemiskinan_moneter": 9.78, "ipm": 71.94, "jum_penduduk": 270204 }, { "provinsi": "Aceh", "tahun": 2021, "mpi": 0.048, "kemiskinan_moneter": 15.33, "ipm": 72.18, "jum_penduduk": 5334 }, { "provinsi": "Sumatera Utara", "tahun": 2021, "mpi": 0.051, "kemiskinan_moneter": 9.01, "ipm": 72.0, "jum_penduduk": 14936 }, { "provinsi": "Sumatera Barat", "tahun": 2021, "mpi": 0.064, "kemiskinan_moneter": 6.63, "ipm": 72.65, "jum_penduduk": 5580 }, { "provinsi": "Riau", "tahun": 2021, "mpi": 0.056, "kemiskinan_moneter": 7.12, "ipm": 72.94, "jum_penduduk": 6494 }, { "provinsi": "Jambi", "tahun": 2021, "mpi": 0.056, "kemiskinan_moneter": 8.09, "ipm": 71.63, "jum_penduduk": 3585 }, { "provinsi": "Sumatera Selatan", "tahun": 2021, "mpi": 0.062, "kemiskinan_moneter": 12.84, "ipm": 70.24, "jum_penduduk": 8551 }, { "provinsi": "Bengkulu", "tahun": 2021, "mpi": 0.048, "kemiskinan_moneter": 15.22, "ipm": 71.64, "jum_penduduk": 2033 }, { "provinsi": "Lampung", "tahun": 2021, "mpi": 0.049, "kemiskinan_moneter": 12.62, "ipm": 69.9, "jum_penduduk": 9082 }, { "provinsi": "Kep. Bangka Belitung", "tahun": 2021, "mpi": 0.05, "kemiskinan_moneter": 4.9, "ipm": 71.69, "jum_penduduk": 1473 }, { "provinsi": "Kepulauan Riau", "tahun": 2021, "mpi": 0.027, "kemiskinan_moneter": 6.12, "ipm": 75.79, "jum_penduduk": 2118 }, { "provinsi": "DKI Jakarta", "tahun": 2021, "mpi": 0.017, "kemiskinan_moneter": 4.72, "ipm": 81.11, "jum_penduduk": 10610 }, { "provinsi": "Jawa Barat", "tahun": 2021, "mpi": 0.056, "kemiskinan_moneter": 8.4, "ipm": 72.45, "jum_penduduk": 48782 }, { "provinsi": "Jawa Tengah", "tahun": 2021, "mpi": 0.043, "kemiskinan_moneter": 11.79, "ipm": 72.16, "jum_penduduk": 36743 }, { "provinsi": "D I Yogyakarta", "tahun": 2021, "mpi": 0.016, "kemiskinan_moneter": 12.8, "ipm": 80.22, "jum_penduduk": 3713 }, { "provinsi": "Jawa Timur", "tahun": 2021, "mpi": 0.044, "kemiskinan_moneter": 11.4, "ipm": 72.14, "jum_penduduk": 40879 }, { "provinsi": "Banten", "tahun": 2021, "mpi": 0.052, "kemiskinan_moneter": 6.66, "ipm": 72.72, "jum_penduduk": 12061 }, { "provinsi": "Bali", "tahun": 2021, "mpi": 0.021, "kemiskinan_moneter": 4.53, "ipm": 75.69, "jum_penduduk": 4363 }, { "provinsi": "Nusa Tenggara Barat", "tahun": 2021, "mpi": 0.036, "kemiskinan_moneter": 14.14, "ipm": 68.65, "jum_penduduk": 5390 }, { "provinsi": "Nusa Tenggara Timur", "tahun": 2021, "mpi": 0.18, "kemiskinan_moneter": 20.99, "ipm": 65.28, "jum_penduduk": 5388 }, { "provinsi": "Kalimantan Barat", "tahun": 2021, "mpi": 0.087, "kemiskinan_moneter": 7.15, "ipm": 67.9, "jum_penduduk": 5471 }, { "provinsi": "Kalimantan Tengah", "tahun": 2021, "mpi": 0.068, "kemiskinan_moneter": 5.16, "ipm": 71.25, "jum_penduduk": 2702 }, { "provinsi": "Kalimantan Selatan", "tahun": 2021, "mpi": 0.055, "kemiskinan_moneter": 4.83, "ipm": 71.28, "jum_penduduk": 4123 }, { "provinsi": "Kalimantan Timur", "tahun": 2021, "mpi": 0.033, "kemiskinan_moneter": 6.54, "ipm": 76.88, "jum_penduduk": 3808 }, { "provinsi": "Kalimantan Utara", "tahun": 2021, "mpi": 0.065, "kemiskinan_moneter": 7.36, "ipm": 71.19, "jum_penduduk": 714 }, { "provinsi": "Sulawesi Utara", "tahun": 2021, "mpi": 0.054, "kemiskinan_moneter": 7.77, "ipm": 73.3, "jum_penduduk": 2639 }, { "provinsi": "Sulawesi Tengah", "tahun": 2021, "mpi": 0.095, "kemiskinan_moneter": 13.0, "ipm": 69.79, "jum_penduduk": 3022 }, { "provinsi": "Sulawesi Selatan", "tahun": 2021, "mpi": 0.051, "kemiskinan_moneter": 8.78, "ipm": 72.24, "jum_penduduk": 9140 }, { "provinsi": "Sulawesi Tenggara", "tahun": 2021, "mpi": 0.069, "kemiskinan_moneter": 11.66, "ipm": 71.66, "jum_penduduk": 2659 }, { "provinsi": "Gorontalo", "tahun": 2021, "mpi": 0.072, "kemiskinan_moneter": 15.61, "ipm": 69.0, "jum_penduduk": 1181 }, { "provinsi": "Sulawesi Barat", "tahun": 2021, "mpi": 0.095, "kemiskinan_moneter": 11.29, "ipm": 66.36, "jum_penduduk": 1437 }, { "provinsi": "Maluku", "tahun": 2021, "mpi": 0.121, "kemiskinan_moneter": 17.87, "ipm": 69.71, "jum_penduduk": 1863 }, { "provinsi": "Maluku Utara", "tahun": 2021, "mpi": 0.156, "kemiskinan_moneter": 6.89, "ipm": 68.76, "jum_penduduk": 1299 }, { "provinsi": "Papua Barat", "tahun": 2021, "mpi": 0.123, "kemiskinan_moneter": 21.84, "ipm": 65.26, "jum_penduduk": 1157 }, { "provinsi": "Papua", "tahun": 2021, "mpi": 0.216, "kemiskinan_moneter": 26.86, "ipm": 60.62, "jum_penduduk": 4355 }, { "provinsi": "Indonesia", "tahun": 2021, "mpi": 0.056, "kemiskinan_moneter": 10.14, "ipm": 72.29, "jum_penduduk": 272683 }, { "provinsi": "Aceh", "tahun": 2022, "mpi": 0.045, "kemiskinan_moneter": 14.64, "ipm": 72.8, "jum_penduduk": 5408 }, { "provinsi": "Sumatera Utara", "tahun": 2022, "mpi": 0.044, "kemiskinan_moneter": 8.42, "ipm": 72.71, "jum_penduduk": 15115 }, { "provinsi": "Sumatera Barat", "tahun": 2022, "mpi": 0.052, "kemiskinan_moneter": 5.92, "ipm": 73.26, "jum_penduduk": 5641 }, { "provinsi": "Riau", "tahun": 2022, "mpi": 0.053, "kemiskinan_moneter": 6.78, "ipm": 73.52, "jum_penduduk": 6614 }, { "provinsi": "Jambi", "tahun": 2022, "mpi": 0.052, "kemiskinan_moneter": 7.62, "ipm": 72.14, "jum_penduduk": 3631 }, { "provinsi": "Sumatera Selatan", "tahun": 2022, "mpi": 0.055, "kemiskinan_moneter": 11.9, "ipm": 70.9, "jum_penduduk": 8657 }, { "provinsi": "Bengkulu", "tahun": 2022, "mpi": 0.045, "kemiskinan_moneter": 14.62, "ipm": 72.16, "jum_penduduk": 2060 }, { "provinsi": "Lampung", "tahun": 2022, "mpi": 0.049, "kemiskinan_moneter": 11.57, "ipm": 70.45, "jum_penduduk": 9177 }, { "provinsi": "Kep. Bangka Belitung", "tahun": 2022, "mpi": 0.044, "kemiskinan_moneter": 4.45, "ipm": 72.24, "jum_penduduk": 1495 }, { "provinsi": "Kepulauan Riau", "tahun": 2022, "mpi": 0.032, "kemiskinan_moneter": 6.24, "ipm": 76.46, "jum_penduduk": 2180 }, { "provinsi": "DKI Jakarta", "tahun": 2022, "mpi": 0.021, "kemiskinan_moneter": 4.69, "ipm": 81.65, "jum_penduduk": 10680 }, { "provinsi": "Jawa Barat", "tahun": 2022, "mpi": 0.052, "kemiskinan_moneter": 8.06, "ipm": 73.12, "jum_penduduk": 49406 }, { "provinsi": "Jawa Tengah", "tahun": 2022, "mpi": 0.042, "kemiskinan_moneter": 10.93, "ipm": 72.79, "jum_penduduk": 37032 }, { "provinsi": "D I Yogyakarta", "tahun": 2022, "mpi": 0.014, "kemiskinan_moneter": 11.34, "ipm": 80.64, "jum_penduduk": 3762 }, { "provinsi": "Jawa Timur", "tahun": 2022, "mpi": 0.041, "kemiskinan_moneter": 10.38, "ipm": 72.75, "jum_penduduk": 41150 }, { "provinsi": "Banten", "tahun": 2022, "mpi": 0.044, "kemiskinan_moneter": 6.16, "ipm": 73.32, "jum_penduduk": 12252 }, { "provinsi": "Bali", "tahun": 2022, "mpi": 0.017, "kemiskinan_moneter": 4.57, "ipm": 76.44, "jum_penduduk": 4415 }, { "provinsi": "Nusa Tenggara Barat", "tahun": 2022, "mpi": 0.034, "kemiskinan_moneter": 13.68, "ipm": 69.46, "jum_penduduk": 5474 }, { "provinsi": "Nusa Tenggara Timur", "tahun": 2022, "mpi": 0.175, "kemiskinan_moneter": 20.05, "ipm": 65.9, "jum_penduduk": 5466 }, { "provinsi": "Kalimantan Barat", "tahun": 2022, "mpi": 0.08, "kemiskinan_moneter": 6.73, "ipm": 68.63, "jum_penduduk": 5541 }, { "provinsi": "Kalimantan Tengah", "tahun": 2022, "mpi": 0.069, "kemiskinan_moneter": 5.28, "ipm": 71.63, "jum_penduduk": 2741 }, { "provinsi": "Kalimantan Selatan", "tahun": 2022, "mpi": 0.053, "kemiskinan_moneter": 4.49, "ipm": 71.84, "jum_penduduk": 4182 }, { "provinsi": "Kalimantan Timur", "tahun": 2022, "mpi": 0.033, "kemiskinan_moneter": 6.31, "ipm": 77.44, "jum_penduduk": 3860 }, { "provinsi": "Kalimantan Utara", "tahun": 2022, "mpi": 0.053, "kemiskinan_moneter": 6.77, "ipm": 71.83, "jum_penduduk": 728 }, { "provinsi": "Sulawesi Utara", "tahun": 2022, "mpi": 0.05, "kemiskinan_moneter": 7.28, "ipm": 73.81, "jum_penduduk": 2660 }, { "provinsi": "Sulawesi Tengah", "tahun": 2022, "mpi": 0.096, "kemiskinan_moneter": 12.33, "ipm": 70.28, "jum_penduduk": 3066 }, { "provinsi": "Sulawesi Selatan", "tahun": 2022, "mpi": 0.05, "kemiskinan_moneter": 8.63, "ipm": 72.82, "jum_penduduk": 9226 }, { "provinsi": "Sulawesi Tenggara", "tahun": 2022, "mpi": 0.063, "kemiskinan_moneter": 11.17, "ipm": 72.23, "jum_penduduk": 2702 }, { "provinsi": "Gorontalo", "tahun": 2022, "mpi": 0.077, "kemiskinan_moneter": 15.42, "ipm": 69.81, "jum_penduduk": 1193 }, { "provinsi": "Sulawesi Barat", "tahun": 2022, "mpi": 0.097, "kemiskinan_moneter": 11.75, "ipm": 66.92, "jum_penduduk": 1459 }, { "provinsi": "Maluku", "tahun": 2022, "mpi": 0.116, "kemiskinan_moneter": 15.97, "ipm": 70.22, "jum_penduduk": 1882 }, { "provinsi": "Maluku Utara", "tahun": 2022, "mpi": 0.126, "kemiskinan_moneter": 6.23, "ipm": 69.47, "jum_penduduk": 1319 }, { "provinsi": "Papua Barat", "tahun": 2022, "mpi": 0.118, "kemiskinan_moneter": 21.33, "ipm": 65.89, "jum_penduduk": 1183 }, { "provinsi": "Papua", "tahun": 2022, "mpi": 0.192, "kemiskinan_moneter": 26.56, "ipm": 61.39, "jum_penduduk": 4419 }, { "provinsi": "Indonesia", "tahun": 2022, "mpi": 0.052, "kemiskinan_moneter": 9.54, "ipm": 72.91, "jum_penduduk": 275774 }]
+    data = data.filter(d => d.provinsi != 'Indonesia')
+
+    function onlyUnique(value, index, self) {
+        return self.indexOf(value) === index;
+    }
+
+    var prov = data.map(d => d.provinsi).filter(onlyUnique)
+    var tahun = data.map(d => d.tahun).filter(onlyUnique)
+
+    var itemStyle = {
+        opacity: 0.8
+    };
+
+    var sizeFunction = function (x) {
+        var y = Math.sqrt(x / 5e4) + 0.1;
+        return y * 60;
+    };
+
+    var schema = {
+        'mpi': { name: 'MPI', index: 0, text: 'MPI', unit: '', padding: 0 },
+        'ipm': { name: 'IPM', index: 1, text: 'IPM', unit: '', padding: 0 },
+        'kemiskinan_moneter': { name: 'Kemiskinan Moneter', index: 1, text: 'Kemiskinan Moneter', unit: '', padding: 150 },
+        'jum_penduduk': { name: 'Populasi', index: 2, text: 'Jumlah Penduduk', unit: 'ribu jiwa', padding: 0 },
+        'provinsi': { name: 'Provinsi', index: 3, text: 'Provinsi', unit: '', padding: 0 }
+    }
+
+    var run = function (index = 0, x = 'mpi', y = 'ipm') {
+        myChart = echarts.init(document.getElementById('main'));
+        dataFix = tahun.map(
+            t => data.filter(d => d.tahun == t).map(
+                df => [df[x], df[y], df['jum_penduduk'], df['provinsi'], df['tahun']]
+            )
+        )
+
+        option = {
+            baseOption: {
+                title: [
+                    {
+                        text: tahun[index],
+                        textAlign: 'center',
+                        left: '200px',
+                        bottom: '10%',
+                        textStyle: {
+                            fontSize: 100
+                        }
+                    },
+                    {
+                        text: 'Judul Aja',
+                        left: 'center',
+                        top: 10,
+                        textStyle: {
+                            fontWeight: 'normal',
+                            fontSize: 25
+                        }
+                    }
+                ],
+                tooltip: {
+                    padding: 5,
+                    borderWidth: 1,
+                    formatter: function (obj) {
+                        var value = obj.value;
+                        // prettier-ignore
+                        return schema['provinsi'].text + '：' + value[schema['provinsi'].index] + '<br>'
+                            + schema[y].text + '：' + value[schema[y].index] + '<br>'
+                            + schema[x].text + '：' + value[schema[x].index] + '<br>'
+                            + schema['jum_penduduk'].text + '：' + value[schema['jum_penduduk'].index] + schema['jum_penduduk'].unit + '<br>';
+                    },
+                },
+                xAxis: {
+                    name: schema[x].name,
+                    nameGap: 25,
+                    // max: 0.3,
+                    // min: 0,
+                    nameLocation: 'middle',
+                    nameTextStyle: {
+                        fontSize: 18
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                },
+                yAxis: {
+                    name: schema[y].name,
+                    // max: 100,
+                    // min: 0,
+                    nameTextStyle: {
+                        padding: [0, 0, 0, schema[y].padding],
+                        fontSize: 18
+                    },
+                    splitLine: {
+                        show: false
+                    },
+                },
+                visualMap: [
+                    {
+                        show: false,
+                        dimension: 3,
+                        categories: prov,
+                        inRange: {
+                            color: (function () {
+                                // prettier-ignore
+                                var colors = ['#51689b', '#ce5c5c', '#fbc357', '#8fbf8f', '#659d84', '#fb8e6a', '#c77288', '#786090', '#91c4c5', '#6890ba'];
+                                return colors.concat(colors).concat(colors).concat(colors);
+                            })()
+                        }
+                    }
+                ],
+                grid: {
+                    left: 40,
+                    right: 170
+                },
+                series: [
+                    {
+                        name: tahun[index],
+                        data: dataFix[index],
+                        type: 'scatter',
+                        symbolSize: function (val) {
+                            return sizeFunction(val[2]);
+                        },
+                        emphasis: {
+                            focus: 'self'
+                        },
+                        labelLayout: function () {
+                            return {
+                                x: myChart.getWidth() - 150,
+                                moveOverlap: 'shiftY',
+                                hideOverlap: true
+                            };
+                        },
+                        labelLine: {
+                            show: true,
+                            length2: 5,
+                            lineStyle: {
+                                color: '#ddd8'
+                            }
+                        },
+                        label: {
+                            show: true,
+                            formatter: function (param) {
+                                return param.data[3];
+                            },
+                            position: 'right',
+                            minMargin: 2
+                        }
+                    }
+                ],
+                animationDuration: 2000,
+                animationDurationUpdate: 1000,
+                animationEasingUpdate: 'quinticInOut'
+            }
+        }
+        myChart.setOption(option);
+        if (index==3) {
+            myChart.dispatchAction({
+                type: 'highlight',
+                seriesIndex: 0,
+                dataIndex: 22
+            });
+        } else {
+            myChart.dispatchAction({
+                type: 'highlight',
+                seriesIndex: 1,
+                dataIndex: 22
+            });
+        }
+    }
+
+
+    ScrollTrigger.create({
+        trigger: '#data-section',
+        start: 'top top',
+        onEnter: () => run(),
+        onLeaveBack: () => myChart.dispose()
+    });
+
+    ScrollTrigger.create({
+        trigger: '#story-2',
+        start: 'top center',
+        onEnter: () => run(index = 1),
+        onLeaveBack: () => run()
+    });
+    ScrollTrigger.create({
+        trigger: '#story-3',
+        start: 'top center',
+        onEnter: () => run(index = 2),
+        onLeaveBack: () => run(index = 1)
+    });
+    ScrollTrigger.create({
+        trigger: '#story-4',
+        start: 'top center',
+        onEnter: () => run(index = 3),
+        onLeaveBack: () => run(index = 2)
+    });
+
+</script>
+
+</html>
