@@ -266,6 +266,7 @@
             </svg>
         </div>
     </section>
+
     <section id="data-section" class="flex flex-row-reverse items-center">
         <div class="basis-2/3">
             <div id="main" style="width: 100%;height:800px;"></div>
@@ -329,20 +330,18 @@
         {
             trigger: '#suyati-section',
             start: 'center center',
-            end: '+=1500',
+            end: '+=2000',
             duration: 5,
             scrub: true,
-            pin: true
+            pin: true,
+            // markers: true
         }
     })
-    .from("#suyati-awal", { opacity: 0 })
+    .from("#suyati-awal", { opacity: -100 })
     .fromTo("#suyati-gambar", {opacity: 0.1 }, { opacity: 1, duration: 3 })
-    .fromTo("#suyati-awal", { y: "+=50" }, { y: -1000, duration: 7})
-    // gsap.timeline({ scrollTrigger: { trigger: '#title-section', start: '+=50 top', end: 'bottom top', scrub: true } })
-    //     .to('.title', { scale: 2.3 }, 0).to('.subtitle', { opacity: -100 }, 0)
+    .fromTo("#suyati-awal", {y: "+=50" }, { y: -1000, duration: 15})
 
     // GRAPH SECTION
-
     var graphAnim = gsap.timeline({
         scrollTrigger:
         {
