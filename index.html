@@ -23,6 +23,7 @@
         <h2 class="subtitle text-xl">Direktorat Analisis & Pengembangan Statistik</h2>
         <div class="scroll-down">Scroll down<div class="arrow"></div>
     </section>
+
     <section id="quote-section" class="pt-10 flex flex-col justify-center">
         <div id="sen-quote"
             class="bg-white z-10 rounded-xl shadow-lg border border-gray-200 p-10 text-center container mx-auto">
@@ -50,6 +51,69 @@
                 mewujudkan hidup yang lebih layak dan keluar dari kemiskinan.</p>
         </div>
     </section>
+
+    <section id="suyati-section" class="flex flex-col justify-center items-center">
+        <div style="position: relative; display: inline-block;">
+            <img id="suyati-gambar" src="images\suyati_shadow.jpg" alt="Cover" style="display: block;"></img>
+                <div id="suyati-awal" style="position: absolute; display: inline-block; top: 8%; left: 5%; text-align: justify; justify-content: center; align-items: center; width: 700px">
+                    <p style="color: white; text-align: justify;" >
+                        <font size="+3">
+                            Suyati adalah adalah seorang perempuan berusia 40 tahun yang hidup di pinggiran teluk jakarta. 
+                            Suyati tinggal bersama suami dan ketiga anaknya. 
+                            Suyati hanya tamatan SD. Anak pertama berhenti sekolah di kelas 2 SMP karena membantu ayahnya bekerja sebagai nelayan.
+                        </font>
+                    </p>
+                    <br>
+                    <br>
+                    <hr style="border: none; border-top: 1px solid white;">
+                    <br>
+                    <br>
+                    <p style="color: white; text-align: justify;" >
+                        <font size="+3">
+                            Rumah Suyati tidak terlalu lebar terbuat dari bilik kayu beratap seng. 
+                            Rumah Suyati tidak mendapatkan aliran listrik PLN, sehingga ia mendapatkan listrik secara ilegal. 
+                        </font>
+                    </p>
+                    <br>
+                    <br>
+                    <hr style="border: none; border-top: 1px solid white;">
+                    <br>
+                    <br>
+                    <p style="color: white; text-align: justify;" >
+                        <font size="+3">
+                            Rumah Suyati tidak memiliki toilet. 
+                            Ia menggunakan toilet umum untuk mencuci, mandi, dan buang air dengan iuran bulanan sebesar Rp 50.000,00.  
+                        </font>
+                    </p>
+                    <br>
+                    <br>
+                    <hr style="border: none; border-top: 1px solid white;">
+                    <br>
+                    <br>
+                    <p style="color: white; text-align: justify;" >
+                        <font size="+3">
+                            Suyati bekerja sebagai pengupas kulit kerang seharian. Anak bungsunya sering makan mie instan karena ia tidak sempat memasak. 
+                            Setiap bulan ia bisa mengantongi uang sebesar 200 hingga 300 ribu rupiah untuk membantu suaminya yang bekerja sebagai nelayan dengan 
+                            penghasilan per bulan sekitar Rp2.000.000,00. 
+                        </font>
+                    </p>
+                    <br>
+                    <br>
+                    <hr style="border: none; border-top: 1px solid white;">
+                    <br>
+                    <br>
+                    <p style="color: white; text-align: justify;" >
+                        <font size="+3">
+                            Apabila dibandingkan dengan garis kemiskinan nasional pada Maret 2018, keluarga Suyati tidak tergolong miskin berdasarkan pendekatan moneter.
+                            Pemerintah menetapkan garis kemiskinan per kapita sebesar Rp 401.222,00 atau Rp 1,84 juta per rumah tangga per bulan. 
+                            Ini memperlihatkan bahwa rumah tangga Suyati tidak mengalami kemiskinan yang ditetapkan oleh BPS.
+                        </font>
+                    </p>
+                </div>
+        </div>
+    </section>
+
+
     <section id="graph-section">
         <div class="kemiskinan w-full min-h-full flex">
             <svg class="m-auto" style="max-width: 1500px;" viewBox="0 0 300 300" version="1.1" id="svg5" xmlns:svg="http://www.w3.org/2000/svg">
@@ -256,6 +320,26 @@
         .fromTo("#sen-quote", { scale: 0.5, opacity: 0.1 }, { scale: 1, opacity: 1, duration: 0.5 })
         .to("#sen-quote", { y: "-=100" })
         .fromTo('#quote-con', { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5 }, "-=0.5")
+
+    
+    // SUYATI SECTION
+    gsap.timeline().from('#suyati-section', { opacity: 0, y: '+=30', duration: 2 })
+    gsap.timeline({
+        scrollTrigger:
+        {
+            trigger: '#suyati-section',
+            start: 'center center',
+            end: '+=1500',
+            duration: 5,
+            scrub: true,
+            pin: true
+        }
+    })
+    .from("#suyati-awal", { opacity: 0 })
+    .fromTo("#suyati-gambar", {opacity: 0.1 }, { opacity: 1, duration: 3 })
+    .fromTo("#suyati-awal", { y: "+=50" }, { y: -1000, duration: 7})
+    // gsap.timeline({ scrollTrigger: { trigger: '#title-section', start: '+=50 top', end: 'bottom top', scrub: true } })
+    //     .to('.title', { scale: 2.3 }, 0).to('.subtitle', { opacity: -100 }, 0)
 
     // GRAPH SECTION
 
