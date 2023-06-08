@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MPI</title>
+
+    <link rel="stylesheet" href="css/mpi.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <!-- <script src="https://unpkg.com/gsap@3/dist/ScrollToPlugin.min.js"></script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.1/dist/echarts.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <section id="title-section" class="flex flex-col justify-center items-center">
+        <h1 class="title text-4xl font-bold">Multidimensional Poverty Index</h1>
+        <h2 class="subtitle text-xl">Direktorat Analisis & Pengembangan Statistik</h2>
+        <div class="scroll-down">Scroll down<div class="arrow"></div>
+    </section>
+
+    <!-- <section id="pie-section" class="flex flex-row-reverse items-center">
+        <div style="position: relative; display: inline-block;">
+            <div style="position: absolute; border-radius: 10px; display: inline-block; top: 20%; left: 20%; text-align: center; justify-content: center; align-items: center; width: 1200px; background-color: rgba(0, 0, 0, 0.6);">
+                <div id="main_pie" style="width: 100%;height:800px;"></div>
+            </div>
+        </div>
+    </section> -->
+
+    <section id="data-section" class="flex flex-row-reverse items-center">
+        <div class="basis-2/3">
+            <div id="main" style="width: 100%;height:800px;"></div>
+        </div>
+    </section>
+    
+    <section id="story-section" class="flex flex-col">
+        <div id="story-1" class="basis-1/3 min-h-screen">
+            <div style="position: absolute; border-radius: 10px; display: inline-block; left: 5%; text-align: justify; justify-content: center; align-items: center; width: 500px; background-color: rgba(0, 0, 0, 0.6);">
+                <p style="color: white; text-align: center; padding: 30px;" >
+                    <font size="+1.5">
+                        JELASIN KONTRIBUSI DIMENSI DIMENSI
+                    </font>
+                </p>
+            </div>
+        </div>
+        <div id="story-2" class="basis-1/3 min-h-screen">
+            <div style="position: absolute; border-radius: 10px; display: inline-block; left: 5%; text-align: justify; justify-content: center; align-items: center; width: 500px; background-color: rgba(0, 0, 0, 0.6);">
+                <p style="color: white; text-align: center; padding: 30px;" >
+                    <font size="+1.5">
+                        JELASIN KONTRIBUSI INDIKATORNYA
+                    </font>
+                </p>
+            </div>
+        </div>
+        <div id="story-3" class="basis-1/3 min-h-screen">
+            <div style="position: absolute; border-radius: 10px; display: inline-block; left: 5%; text-align: justify; justify-content: center; align-items: center; width: 500px; background-color: rgba(0, 0, 0, 0.6);">
+                <p style="color: white; text-align: center; padding: 30px;" >
+                    <font size="+1.5">
+                        JELASIN KONTRIBUSI INDIKATORNYA
+                    </font>
+                </p>
+            </div>
+        </div>
+        <div id="story-4" class="basis-1/3 min-h-screen">
+            <div style="position: absolute; border-radius: 10px; display: inline-block; left: 5%; text-align: justify; justify-content: center; align-items: center; width: 500px; background-color: rgba(0, 0, 0, 0.6);">
+                <p style="color: white; text-align: center; padding: 30px;" >
+                    <font size="+1.5">
+                        JELASIN KONTRIBUSI INDIKATORNYA
+                    </font>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        Data Zoom
+    </section>
+
+</body>
+<script>
+    // ARROW
+    // gsap.to('.arrow', { y: 12, ease: "power1.inOut", repeat: -1, yoyo: true });
+
+    // TITLE SECTION
+    gsap.timeline().from('.title', { opacity: 0, y: '+=30', duration: 1 }).from('.subtitle', { opacity: 0, duration: 0.7 })
+    gsap.timeline({ scrollTrigger: { trigger: '#title-section', start: '+=50 top', end: 'bottom top', scrub: true } })
+        .to('.title', { scale: 2.3 }, 0).to('.subtitle', { opacity: -100 }, 0)
+
+    // KONTRIBUSI CHART
+
+    var chartDom = document.getElementById('main');
+
+    var run_pie = function (dimensi = 1) {
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+        tooltip: {
+            trigger: 'item'
+        },
+        series: [
+            {
+            name: 'Kontribusi',
+            type: 'pie',
+            radius: '50%',
+            itemStyle: {
+                normal: {
+                label: {
+                    show: true,
+                    position: 'inner',
+                    formatter: function (params) {
+                    return params.value + '%\n' + params.name;
+                    }
+                },
+                labelLine: {
+                    show: true
+                }
+                }
+            },
+            data: [
+                { value: 54, name: 'Pendidikan', itemStyle: { color: 'green' } },
+                { value: 20, name: 'Standar Hidup', itemStyle: { color: '#a90000' } },
+                { value: 26, name: 'Kesehatan', itemStyle: { color: 'yellow' } }
+            ],
+            emphasis: {
+                itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                }
+            }
+            }
+        ]
+        };
+
+        option && myChart.setOption(option);
+    }
+
+    var run = function (dimensi = 1) {
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        if (dimensi==1){
+            var data_label = ['', '', '', '',
+                                '', 'Air minum layak', 'Sanitasi', 'Bahan bakar masak',
+                                'Lantai layak', 'Listrik', 'Aset produktif', 'Akta lahir',
+                                'Bekerja', 'Internet'];
+            var data_value = [
+                            {
+                            value: null,
+                            itemStyle: {
+                                color: 'yellow'
+                            }
+                            },
+                            {
+                            value: null,
+                            itemStyle: {
+                                color: 'yellow'
+                            }
+                            },
+                            {
+                            value: null,
+                            itemStyle: {
+                                color: 'yellow'
+                            }
+                            },
+                            {
+                            value: null,
+                            itemStyle: {
+                                color: 'green'
+                            }
+                            },
+                            {
+                            value: null,
+                            itemStyle: {
+                                color: 'green'
+                            }
+                            },
+                            {
+                            value: 2.1,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 4.11,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 3.08,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 3.36,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 0.3,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 0.68,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 2.7,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 1.51,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 1.69,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            }
+                        ];
+        } else if (dimensi==2){
+            var data_label = ['', '', '', 'Tidak tamat SMP',
+                                'Tidak/belum sekolah', 'Air minum layak', 'Sanitasi', 'Bahan bakar masak',
+                                'Lantai layak', 'Listrik', 'Aset produktif', 'Akta lahir',
+                                'Bekerja', 'Internet'];
+            var data_value = [
+                            {
+                            value: null,
+                            itemStyle: {
+                                color: 'yellow'
+                            }
+                            },
+                            {
+                            value: null,
+                            itemStyle: {
+                                color: 'yellow'
+                            }
+                            },
+                            {
+                            value: null,
+                            itemStyle: {
+                                color: 'yellow'
+                            }
+                            },
+                            {
+                            value: 38.14,
+                            itemStyle: {
+                                color: 'green'
+                            }
+                            },
+                            {
+                            value: 16.33,
+                            itemStyle: {
+                                color: 'green'
+                            }
+                            },
+                            {
+                            value: 2.1,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 4.11,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 3.08,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 3.36,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 0.3,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 0.68,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 2.7,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 1.51,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 1.69,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            }
+                        ];
+        } else if (dimensi==3){
+            var data_label = ['Imunisasi', 'Kalori/kap', 'Pelayanan kesehatan', 'Tidak tamat SMP',
+                                'Tidak/belum sekolah', 'Air minum layak', 'Sanitasi', 'Bahan bakar masak',
+                                'Lantai layak', 'Listrik', 'Aset produktif', 'Akta lahir',
+                                'Bekerja', 'Internet'];
+            var data_value = [
+                            {
+                            value: 2.58,
+                            itemStyle: {
+                                color: 'yellow'
+                            }
+                            },
+                            {
+                            value: 23.12,
+                            itemStyle: {
+                                color: 'yellow'
+                            }
+                            },
+                            {
+                            value: 0.31,
+                            itemStyle: {
+                                color: 'yellow'
+                            }
+                            },
+                            {
+                            value: 38.14,
+                            itemStyle: {
+                                color: 'green'
+                            }
+                            },
+                            {
+                            value: 16.33,
+                            itemStyle: {
+                                color: 'green'
+                            }
+                            },
+                            {
+                            value: 2.1,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 4.11,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 3.08,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 3.36,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 0.3,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 0.68,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 2.7,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 1.51,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            },
+                            {
+                            value: 1.69,
+                            itemStyle: {
+                                color: '#a90000'
+                            }
+                            }
+                        ];
+        };
+
+        option = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+            type: 'shadow'
+            }
+        },
+        // legend: {},
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            min: 0,
+            max: 40
+        },
+        yAxis: {
+            type: 'category',
+            data: data_label,
+            axisTick: {
+            alignWithLabel: true
+            }
+        },
+        series: [
+            {
+            name: 'Kontribusi',
+            type: 'bar',
+            stack: 'total',
+            label: {
+                show: true
+            },
+            emphasis: {
+                focus: 'series'
+            },
+            data: data_value
+            }
+        ],
+        animationDuration: 2000,
+        animationDurationUpdate: 1000,
+        animationEasingUpdate: 'quinticInOut'
+        };
+
+        option && myChart.setOption(option);
+
+    }
+    
+    // DATA SECTION
+    gsap.timeline({
+        scrollTrigger:
+        {
+            trigger: '#data-section',
+            start: 'center center',
+            endTrigger: '#story-4',
+            end: 'top top',
+            scrub: true,
+            pin: true,
+            pinSpacing: false,
+            onEnter: () => run_pie(),
+            onLeaveBack: () => myChart.dispose(),
+            markers: true
+        }
+    })
+
+    // ScrollTrigger.create({
+    //     trigger: '#data-section',
+    //     start: 'top top',
+    //     onEnter: () => run(),
+    //     onLeaveBack: () => myChart.dispose()
+    // });
+
+    ScrollTrigger.create({
+        trigger: '#story-1',
+        start: 'center center',
+        // markers: true,
+        onEnter: () => run(dimensi = 1),
+        onLeaveBack: () => run_pie()
+    });
+    ScrollTrigger.create({
+        trigger: '#story-2',
+        start: 'center center',
+        // markers: true,
+        onEnter: () => run(dimensi = 2),
+        onLeaveBack: () => run(dimensi = 1)
+    });
+    ScrollTrigger.create({
+        trigger: '#story-3',
+        start: 'center center',
+        onEnter: () => run(dimensi = 3),
+        onLeaveBack: () => run(dimensi = 2)
+        // markers: true
+    });
+    ScrollTrigger.create({
+        trigger: '#story-4',
+        start: 'center center',
+        onEnter: () => run(dimensi = 3),
+        // markers: true
+    });
+
+
+</script>
+
+</html>
