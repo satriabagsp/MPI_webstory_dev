@@ -107,7 +107,7 @@
             {
             name: 'Kontribusi',
             type: 'pie',
-            radius: '50%',
+            radius: '80%',
             itemStyle: {
                 normal: {
                 label: {
@@ -481,17 +481,10 @@
             pin: true,
             pinSpacing: false,
             onEnter: () => run_pie(),
-            onLeaveBack: () => myChart.dispose(),
+            onLeaveBack: () => myChart.clear(),
             markers: true
         }
     })
-
-    // ScrollTrigger.create({
-    //     trigger: '#data-section',
-    //     start: 'top top',
-    //     onEnter: () => run(),
-    //     onLeaveBack: () => myChart.dispose()
-    // });
 
     ScrollTrigger.create({
         trigger: '#story-1',
