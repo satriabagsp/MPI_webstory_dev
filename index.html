@@ -115,12 +115,22 @@
 
     <section id="page67-section" class="flex flex-col justify-center items-center">
         <div style="position: relative; display: inline-block;">
-            <img id="page67-gambar" src="images\india.jpg" alt="Cover" style="display: block;"></img>
-                <div id="page67-text" style="position: absolute; display: inline-block; top: 15%; left: 60%; text-align: justify; justify-content: center; align-items: center; width: 730px; background-color: rgba(0, 0, 0, 0.8);">
-                    <p style="color: white; text-align: justify;" >
-                        <font size="+3">
+            <img id="page67-gambar-warna" src="images\india_warna.png" alt="Cover" style="display: block; position: absolute;"></img>
+            <img id="page67-gambar" src="images\india.jpg" alt="Cover" style="display: block; position: relative;"></img>
+                <div id="page67-text" style="position: absolute; border-radius: 10px; display: inline-block; top: 20%; left: 55%; text-align: justify; justify-content: center; align-items: center; width: 750px; background-color: rgba(0, 0, 0, 0.6);">
+                    <p style="color: white; text-align: justify; padding: 30px;" >
+                        <font size="+3.5">
                             Kita tidak bisa menghilangkan tantangan ini dengan berfokus pada pendekatan moneter saja.
                             Untuk mengatasi perbedaan tersebut, kita perlu memahami kemiskinan dari sudut pandang multidimensi. 
+                        </font>
+                    </p>
+                </div>
+                <div id="page67-text-2" style="position: absolute; border-radius: 10px; display: inline-block; top: 20%; left: 20%; text-align: center; justify-content: center; align-items: center; width: 1200px; background-color: rgba(0, 0, 0, 0.6);">
+                    <p style="color: white; text-align: center; padding: 30px;" >
+                        <font size="+3.5">
+                            Untuk hasil jangka panjang, Indonesia membutuhkan program yang multifacet dan spesifik sesuai konteks. 
+                            Dengan pendekatan holistik yang mengatasi tantangan multidimensi yang unik dari kemiskinan, rumah tangga dapat keluar dari lingkaran kemiskinan untuk jangka panjang, 
+                            memungkinkan generasi mendatang untuk berkembang
                         </font>
                     </p>
                 </div>
@@ -361,14 +371,19 @@
             trigger: '#page67-section',
             start: 'center center',
             end: '+=1500',
-            duration: 5,
+            duration: 10,
             scrub: true,
             pin: true,
             // markers: true
         }
     })
-    .fromTo('#page67-text', { opacity: 0, y: '+=300' }, { opacity: 1, y: 0, duration: 3 })
-    // .from("#suyati-awal", { opacity: -100 })
+    .fromTo('#page67-text', { opacity: 0, y: '+=100' }, { opacity: 1, y: 0, duration: 3 })
+    .to("#page67-text", { duration:5 })
+    .to("#page67-text", { opacity: 0.0, y: '-=350', duration:5 })
+    .fromTo('#page67-text-2', { opacity: 0, y: '+=150' }, { opacity: 1, y: 0, duration: 3 })
+    .to("#page67-gambar", { opacity: 0, duration:5 })
+    .to("#page67-gambar", { duration:5 })
+    // .to("#page67-text-2", {scale: 2.3, opacity: 0.1})
     // .fromTo("#suyati-gambar", {opacity: 0.5 }, { opacity: 1, duration: 3 })
     // .fromTo("#suyati-awal", {y: "+=50" }, { y: -1000, duration: 18})
 
