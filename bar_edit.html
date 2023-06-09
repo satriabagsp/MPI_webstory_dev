@@ -24,31 +24,22 @@
         <div class="scroll-down">Scroll down<div class="arrow"></div>
     </section>
 
-    <section id="quote-section" class="pt-10 flex flex-col justify-center">
-        <div id="sen-quote"
-            class="bg-white z-10 rounded-xl shadow-lg border border-gray-200 p-10 text-center container mx-auto">
-            <figure class="max-w-screen-md mx-auto text-center">
-                <svg aria-hidden="true" class="w-12 h-12 mx-auto mb-3 text-gray-400" viewBox="0 0 24 27" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z"
-                        fill="currentColor" />
-                </svg>
-                <blockquote>
-                    <p class="text-2xl italic font-medium text-gray-900">Poverty is not just a lack of money; it is not
-                        having the capability to realize one’s full potential as a human being.</p>
-                </blockquote>
-                <figcaption class="flex items-center justify-center mt-6 space-x-3">
-                    <img class="w-6 h-6 rounded-full" src="images/sen.jpg" alt="Amartya Sen">
-                    <div class="flex items-center">
-                        <cite class="pr-3 font-medium text-gray-900">Amartya Sen</cite>
-                    </div>
-                </figcaption>
-            </figure>
+    <section id="pie-section">
+        <div id="pie-chart" class="flex flex-row-reverse items-center">
+            <div id="myPie" style="width: 100%;height:800px;"></div>
         </div>
-        <div id="quote-con" class="-translate-y-16">
+        <!-- <div id="pie-explain" class="-translate-y-16">
             <p class="text-center text-xl font-semibold">Keterbatasan yang dimiliki membatasi masyarakat untuk
                 mewujudkan hidup yang lebih layak dan keluar dari kemiskinan.</p>
+        </div> -->
+        <div id="pie-explain" class="flex flex-row-reverse items-center" style="position: absolute; border-radius: 10px; display: inline-block; top: 20%; left: 20%; text-align: center; justify-content: center; align-items: center; width: 700px; background-color: rgba(0, 0, 0, 0.6);">
+            <p style="color: white; text-align: center; padding: 30px;" >
+                <font size="+2">
+                    Untuk hasil jangka panjang, Indonesia membutuhkan program yang multifacet dan spesifik sesuai konteks. 
+                    Dengan pendekatan holistik yang mengatasi tantangan multidimensi yang unik dari kemiskinan, rumah tangga dapat keluar dari lingkaran kemiskinan untuk jangka panjang, 
+                    memungkinkan generasi mendatang untuk berkembang
+                </font>
+            </p>
         </div>
     </section>
 
@@ -86,15 +77,6 @@
                 </p>
             </div>
         </div>
-        <div id="story-4" class="basis-1/3 min-h-screen">
-            <div style="position: absolute; border-radius: 10px; display: inline-block; left: 5%; text-align: justify; justify-content: center; align-items: center; width: 500px; background-color: rgba(0, 0, 0, 0.6);">
-                <p style="color: white; text-align: center; padding: 30px;" >
-                    <font size="+1.5">
-                        JELASIN KONTRIBUSI INDIKATORNYA
-                    </font>
-                </p>
-            </div>
-        </div>
     </section>
 
     <section>
@@ -111,14 +93,74 @@
     gsap.timeline({ scrollTrigger: { trigger: '#title-section', start: '+=50 top', end: 'bottom top', scrub: true } })
         .to('.title', { scale: 2.3 }, 0).to('.subtitle', { opacity: -100 }, 0)
 
-    // KONTRIBUSI CHART
+    // QUOTE SECTION
+    gsap.timeline({
+        scrollTrigger:
+        {
+            trigger: '#pie-section',
+            start: 'center center',
+            end: '+=1500',
+            duration: 50,
+            scrub: true,
+            pin: true
+        }
+    })
+        .fromTo("#pie-chart", { scale: 0.5, opacity: 0.1 }, { scale: 1, opacity: 1, duration: 0.5 })
+        .to("#pie-chart", { x: "-=450" })
+        .fromTo('#pie-explain', { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, x: "+=550" }, "-=0.5")
+        // .from("('#pie-explain", { duration: 5 })
 
+    // PIE CHART
+    // Inisialisasi ECharts
+    var myPie = echarts.init(document.getElementById('myPie'));
+
+    // Konfigurasi grafik
+    var pie_option = {
+        tooltip: {
+            trigger: 'item'
+        },
+        series: [
+                {
+                name: 'Kontribusi',
+                type: 'pie',
+                radius: '80%',
+                itemStyle: {
+                    normal: {
+                    label: {
+                        show: true,
+                        position: 'inner',
+                        formatter: function (params) {
+                        return params.value + '%\n' + params.name;
+                        }
+                    },
+                    labelLine: {
+                        show: true
+                    }
+                    }
+                },
+                data: [
+                    { value: 54, name: 'Pendidikan', itemStyle: { color: 'green' } },
+                    { value: 20, name: 'Standar Hidup', itemStyle: { color: '#a90000' } },
+                    { value: 26, name: 'Kesehatan', itemStyle: { color: 'yellow' } }
+                ],
+                emphasis: {
+                    itemStyle: {
+                    shadowBlur: 10,
+                    shadowOffsetX: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+                }
+            ]
+        }
+        
+    // Tampilkan grafik dengan konfigurasi yang telah ditentukan
+    myPie.setOption(pie_option);
+    
+    // KONTRIBUSI CHART
     var chartDom = document.getElementById('main');
-    var myChart = echarts.init(chartDom);
 
     var run_pie = function (dimensi = 1) {
-        
-        myChart.dispose();
         var myChart = echarts.init(chartDom);
         var option;
 
@@ -165,6 +207,7 @@
     }
 
     var run = function (dimensi = 1) {
+        var myChart = echarts.init(chartDom);
         var option;
 
         if (dimensi==1){
@@ -497,12 +540,12 @@
         {
             trigger: '#data-section',
             start: 'center center',
-            endTrigger: '#story-4',
+            endTrigger: '#story-3',
             end: 'top top',
             scrub: true,
             pin: true,
             pinSpacing: false,
-            onEnter: () => run_pie(),
+            onEnter: () => run(dimensi = 1),
             onLeaveBack: () => myChart.clear(),
             markers: true
         }
@@ -512,25 +555,18 @@
         trigger: '#story-1',
         start: 'center center',
         // markers: true,
-        onEnter: () => run(dimensi = 1),
-        onLeaveBack: () => run_pie()
+        onEnter: () => run(dimensi = 2),
+        onLeaveBack: () => run(dimensi = 1),
     });
     ScrollTrigger.create({
         trigger: '#story-2',
         start: 'center center',
         // markers: true,
-        onEnter: () => run(dimensi = 2),
-        onLeaveBack: () => run(dimensi = 1)
+        onEnter: () => run(dimensi = 3),
+        onLeaveBack: () => run(dimensi = 2)
     });
     ScrollTrigger.create({
         trigger: '#story-3',
-        start: 'center center',
-        onEnter: () => run(dimensi = 3),
-        onLeaveBack: () => run(dimensi = 2)
-        // markers: true
-    });
-    ScrollTrigger.create({
-        trigger: '#story-4',
         start: 'center center',
         onEnter: () => run(dimensi = 3),
         // markers: true
